@@ -18,7 +18,7 @@ Fitur redux :
 ### Step cara memakai Redux
 1. install axios "npm install react-redux axios @reduxjs/toolkit" paa terminal vscode.
 2. membuat store dan memasukan ke index.js. masuk ke index.js lalu masukan :
-   import {Provider} from 'react-redux
+   `import {Provider} from 'react-redux`
    lalu panggil provider pada return. bungkus tag App dengan tag provider, seperti :
    <Provider>
    <App/>
