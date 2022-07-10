@@ -11,8 +11,7 @@ Fitur redux :
 * Centralized
 * Debuggable
 * Flexible : Bisa memakai UI layer apa saja.
-Penjelasan siklus redux 
-
+### Penjelasan siklus redux :
 1. Redux store berfungsi untuk menahan state kita supaya aman. Jika kita pakai redux, redux ini hanya akan punya satu buah store, jadi semua data aplikasi hanya akan disimpan kedalam satu buah tempat penyimpanan state yang sama.
 2. Action, sebuah aksi yang hanya read only, hanya bersifat perintah tanpa ada tindakan. Dalam action akan ada yang namanya "Dispatch" yang bertugas untuk mengirimkan sesuatu.
 3. Reducer, Sebagai pelaksana. yang ngelakuin semua perintah dari action adalah reducer. Reducer yang akan melakukan perubahan ke store jika perintah sudah di verifikasi.
