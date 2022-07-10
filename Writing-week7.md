@@ -2,7 +2,7 @@
 Tidak wajib untuk digunakan, tapi apabila kita memiliki aplikasi yang sudah cukup besar maka kita perlu karena kita akan mempunyai banyak component dan untuk menghubungkan component 1 ke yang lainnya akan lebih mudah jika kita menggunakan state.
 State management yang sering dipake : redux dan react context.
 
-## Redux, 
+## Redux
 adalah salah satu library yang ukurannya sangat kecil (2 KB). 
 Fitur redux : 
 * Predictable : Dia punya sebuah siklus yang searah
@@ -146,3 +146,16 @@ Context lebih simple dari redux. Setup jauh lebih mudah dari redux.
 1. install bootsrap dengan mengetik "npm install react-bootstrap bootstrap" pada terminal
 2. lalu tinggal import komponen pada file jsx kita
 3. sebelumnya, kita perlu import css bootstrap dengan cara mengimport nya di index.js "import 'bootstrap/dist/css/bootstrap.min.css'"
+   
+# React Testing Otomatis
+1. Masuk ke package.json
+2. lalu lakukan "npm run test" pada terminal. 
+# React Testing Manual
+1. Buat file yanng sama persis dengan file yang akan di test tetapi ganti dengan .test ditengah nama file. jadi misalkan seperti "Counter.test.js"
+2. lalu lakukan importing `"import {render, screen} from '@testing-library/react'"` dan `import Counter from'./Counter'` pada file test.
+3. Bungkus semua element yanga ada file tersebut dengan :
+   //contoh untuk mengecek apakah pada Counter.js ada tulisan "Counter :" atau tidak
+   `test('renders text count',() => (render){<Counter/})`
+   `const textCount= screen.getByText(/Count:/i)`
+   //ekspetasi apa yang mau dicocokan. disini untuk melakukan ekspetasi bahwa text "Count :" ada pada document
+   `expect(textCount).toBeInTheDocument();`
