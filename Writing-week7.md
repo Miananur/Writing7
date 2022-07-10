@@ -6,7 +6,7 @@ State management yang sering dipake : redux dan react context.
 adalah salah satu library yang ukurannya sangat kecil (2 KB). 
 Fitur redux : 
 * Predictable : Dia punya sebuah siklus yang searah
-  gambar arus redux
+  ![img 1](photo/2.png)
   ket siklus redux : ketika UI ada sebuah request dia akan langsung ke action, ketika action terjadi dia akan langsung ke reducer, ketika reducer terjadi dia akan lgsg update ke store, dari store akan ngambil lagi datanya dan akan langsung kirim lagi ke UI.
 * Centralized
 * Debuggable
@@ -97,6 +97,3 @@ Penjelasan siklus redux
 
 
 
-## miana
-* item
-![img 1](photo/1.png)
