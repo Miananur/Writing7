@@ -1,3 +1,5 @@
-#State management 6
+# State management 6
 
-##miana
+## miana
+* item
+![img 1](photo/1.png)
