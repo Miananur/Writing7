@@ -20,22 +20,22 @@ Fitur redux :
 2. membuat store dan memasukan ke index.js. masuk ke index.js lalu masukan :
    `import {Provider} from 'react-redux`
    lalu panggil provider pada return. bungkus tag App dengan tag provider, seperti :
-   <Provider>
+   `<Provider>
    <App/>
-   </Provider>
+   </Provider>`
 3. Buat store menggunakan configure store. Caranya buat satu buah folder terpisah, lalu buat file didalamnya.
    didalam file ketik sebagai berikut :
-   import {configureStore} from '@reduxjs/toolkit'
+   `import {configureStore} from '@reduxjs/toolkit'`
 
-   const store = configureStore({
-    reducer:{
-        tes:"test"
-    }
-   })
+   `const store = configureStore({`
+   ` reducer:{`
+        `tes:"test"`
+    `}`
+   `})`
 
-   export default store
+   `export default store;`
 4. Lalu import folder store ke index.js
-   import store from "./store
+   `import store from "./store`
 5. baru masukan 'store' kedalam tag provider
    <Provider store={store}>
    <App/>
@@ -94,5 +94,55 @@ Fitur redux :
 
         export default BooksView;
 
+# React Context dan Bootstrap
+## React Context
+Context lebih simple dari redux. Setup jauh lebih mudah dari redux.
+### Step cara pembuatan react context
+1. Buat satu buah folder "context", lalu buat file misalkan dengan nama "UserContext.js"
+2. import useState dan createContext
+   `import {useState, createContext} from 'react'`
+3. Buat set up context dengan createContext
+   `export const useContext = createContext();`
+4. Pakai komponen provider untuk menyediakan data context
+   `const userContextProvider=()=>{ const [user] = useState({name:"saya"})}`
+5. lalu return
+   `return (
+    <UserContext.Provider> value=({user})>
+    </UserContext.Provider>
+    )`
+6. Pakai props untuk passing data
+   `import {useState, createContext} from 'react'`
+   `export const userContext = createContext();`
+   `const userContextProvider=(props)=>{ const [user] = useState({name:"saya"})}`
 
+   `return (
+    <UserContext.Provider> value=({user})>
+    {props.children}
+    </UserContext.Provider>
+    )`
 
+    export default userContextProvider;
+7. lalu buat satu buah file pada folder components. Lakukan import untuk mendapatkan data dari file UserContext.js
+   import {userContext} from "../context/UserContext"
+
+   const user = () => {
+
+    return(
+        <UserContext.Consumer>
+        ((userContext) => {
+            const (user) = userContext;
+
+            return(
+                <div>
+                <h1>name : {user.name}</h1>
+                </div>
+            )
+        </UserContext.Consumer>
+        })
+    )
+   }
+## React Bootstrap
+### Cara pakainya :
+1. install bootsrap dengan mengetik "npm install react-bootstrap bootstrap" pada terminal
+2. lalu tinggal import komponen pada file jsx kita
+3. sebelumnya, kita perlu import css bootstrap dengan cara mengimport nya di index.js "import 'bootstrap/dist/css/bootstrap.min.css'"
