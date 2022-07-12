@@ -20,11 +20,11 @@ Fitur redux :
 2. membuat store dan memasukan ke index.js. masuk ke index.js lalu masukan :
    `import {Provider} from 'react-redux`
    lalu panggil provider pada return. bungkus tag App dengan tag provider, seperti :
-   ``` 
-   <Provider>
+   ``` <Provider>
    <App/>
    </Provider>
    ```
+   
 3. Buat store menggunakan configure store. Caranya buat satu buah folder terpisah, lalu buat file didalamnya.
    didalam file ketik sebagai berikut :
    ```import {configureStore} from '@reduxjs/toolkit'
@@ -39,9 +39,9 @@ Fitur redux :
 4. Lalu import folder store ke index.js
    `import store from "./store`
 5. baru masukan 'store' kedalam tag provider
-   <Provider store={store}>
+  ``` <Provider store={store}>
    <App/>
-   </Provider>
+   </Provider> ```
 6. Buat satu buah folder bernama "Books" di dalam folder src>component, lalu buat file di dalam folder tersebut. file 1 isi dengan kodingan biasa dulu saja, dengan ketik "rafce". lalu file 2 isi sebagai berikut :
    import {createSlice} from '@reduxjs/toolkit'
 
