@@ -20,14 +20,16 @@ Fitur redux :
 2. membuat store dan memasukan ke index.js. masuk ke index.js lalu masukan :
    `import {Provider} from 'react-redux`
    lalu panggil provider pada return. bungkus tag App dengan tag provider, seperti :
-   ``` <Provider>
+   ```js
+   <Provider>
    <App/>
    </Provider>
    ```
    
 3. Buat store menggunakan configure store. Caranya buat satu buah folder terpisah, lalu buat file didalamnya.
    didalam file ketik sebagai berikut :
-   ```import {configureStore} from '@reduxjs/toolkit'
+   ```js
+   import {configureStore} from '@reduxjs/toolkit'
 
    const store = configureStore({
     reducer:{
@@ -39,10 +41,13 @@ Fitur redux :
 4. Lalu import folder store ke index.js
    `import store from "./store`
 5. baru masukan 'store' kedalam tag provider
-  ``` <Provider store={store}>
+  ```js
+  <Provider store={store}>
    <App/>
-   </Provider> ```
+   </Provider> 
+   ```
 6. Buat satu buah folder bernama "Books" di dalam folder src>component, lalu buat file di dalam folder tersebut. file 1 isi dengan kodingan biasa dulu saja, dengan ketik "rafce". lalu file 2 isi sebagai berikut :
+   ```js
    import {createSlice} from '@reduxjs/toolkit'
 
    const initialState = {
@@ -63,8 +68,10 @@ Fitur redux :
    })
 
    export default bookSlice.reducer;
+   ```
 7. Pada App.js import file yang telah dibuat tersebut.
 8. Lalu masuk ke file dalam folder store lagi dan import bookSlice
+   ```js
    import {configureStore} from '@reduxjs/toolkit'
    import bookReducer from '../Components/Books/BooksSlice'
 
@@ -74,9 +81,11 @@ Fitur redux :
         book: bookReducer,
     }
    })
+   ```
 9. Cek data store di inspect>redux>state. install dulu extention 'Redux DevTools' pada chrome buat bisa liat. 
 10. Memunculkan state dari store redux. caranya :
     * masuk ke file 1 pada folder Books, lalu import useSelector
+       ```js
         import {useSelector} from 'react-redux'
 
         const BooksView = () => {
@@ -95,6 +104,7 @@ Fitur redux :
         }
 
         export default BooksView;
+        ```
 
 # React Context dan Bootstrap
 ## React Context
@@ -108,23 +118,28 @@ Context lebih simple dari redux. Setup jauh lebih mudah dari redux.
 4. Pakai komponen provider untuk menyediakan data context
    `const userContextProvider=()=>{ const [user] = useState({name:"saya"})}`
 5. lalu return
-   `return (
+   ```js
+   return (
     <UserContext.Provider> value=({user})>
     </UserContext.Provider>
-    )`
+    )
+    ```
 6. Pakai props untuk passing data
-   `import {useState, createContext} from 'react'`
-   `export const userContext = createContext();`
-   `const userContextProvider=(props)=>{ const [user] = useState({name:"saya"})}`
+   ```js
+   import {useState, createContext} from 'react'
+   export const userContext = createContext();
+   const userContextProvider=(props)=>{ const [user] = useState({name:"saya"})}
 
-   `return (
+   return (
     <UserContext.Provider> value=({user})>
     {props.children}
     </UserContext.Provider>
-    )`
-
+    )
+    
     export default userContextProvider;
+    ```
 7. lalu buat satu buah file pada folder components. Lakukan import untuk mendapatkan data dari file UserContext.js
+   ```js
    import {userContext} from "../context/UserContext"
 
    const user = () => {
@@ -143,6 +158,7 @@ Context lebih simple dari redux. Setup jauh lebih mudah dari redux.
         })
     )
    }
+   ```
 ## React Bootstrap
 ### Cara pakainya :
 1. install bootsrap dengan mengetik "npm install react-bootstrap bootstrap" pada terminal
@@ -156,8 +172,10 @@ Context lebih simple dari redux. Setup jauh lebih mudah dari redux.
 1. Buat file yanng sama persis dengan file yang akan di test tetapi ganti dengan .test ditengah nama file. jadi misalkan seperti "Counter.test.js"
 2. lalu lakukan importing `"import {render, screen} from '@testing-library/react'"` dan `import Counter from'./Counter'` pada file test.
 3. Bungkus semua element yanga ada file tersebut dengan :
+   ```js
    //contoh untuk mengecek apakah pada Counter.js ada tulisan "Counter :" atau tidak
-   `test('renders text count',() => (render){<Counter/})`
-   `const textCount= screen.getByText(/Count:/i)`
+   test('renders text count',() => (render){<Counter/})
+   const textCount= screen.getByText(/Count:/i)
    //ekspetasi apa yang mau dicocokan. disini untuk melakukan ekspetasi bahwa text "Count :" ada pada document
-   `expect(textCount).toBeInTheDocument();`
+   expect(textCount).toBeInTheDocument();
+   ```
