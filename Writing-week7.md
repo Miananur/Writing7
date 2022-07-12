@@ -20,20 +20,22 @@ Fitur redux :
 2. membuat store dan memasukan ke index.js. masuk ke index.js lalu masukan :
    `import {Provider} from 'react-redux`
    lalu panggil provider pada return. bungkus tag App dengan tag provider, seperti :
-   `<Provider>
+   ``` 
+   <Provider>
    <App/>
-   </Provider>`
+   </Provider>
+   ```
 3. Buat store menggunakan configure store. Caranya buat satu buah folder terpisah, lalu buat file didalamnya.
    didalam file ketik sebagai berikut :
-   `import {configureStore} from '@reduxjs/toolkit'`
+   ```import {configureStore} from '@reduxjs/toolkit'
 
-   `const store = configureStore({`
-   ` reducer:{`
-        `tes:"test"`
-    `}`
-   `})`
+   const store = configureStore({
+    reducer:{
+        tes:"test"
+    }
+   })
 
-   `export default store;`
+   export default store;```
 4. Lalu import folder store ke index.js
    `import store from "./store`
 5. baru masukan 'store' kedalam tag provider
